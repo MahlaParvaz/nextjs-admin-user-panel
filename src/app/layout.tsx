@@ -17,17 +17,17 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="fa" dir='rtl'>
       <body
       suppressHydrationWarning={true} 
       className={inter.className}>
+         <Providers>
           <Toaster />
           <Header />
           <div className="container xl:max-w-screen-xl">
-            <Providers>
             {children}
-            </Providers>
             </div>
+           </Providers>
       </body>
     </html>
   )
