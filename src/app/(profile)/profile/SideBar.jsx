@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { logout } from '@/services/authServices';
 
 function SideBar() {
   const logoutHandler = async (e) => {

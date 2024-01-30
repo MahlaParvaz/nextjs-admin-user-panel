@@ -22,5 +22,5 @@ export function updateProfile(data) {
 }
 
 export function logout() {
-  return http.patch('/user/logout');
+  return http.post('/user/logout');
 }
