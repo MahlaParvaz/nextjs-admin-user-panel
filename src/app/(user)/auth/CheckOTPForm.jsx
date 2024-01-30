@@ -1,7 +1,7 @@
 import OTPInput from 'react-otp-input';
 import { HiArrowNarrowRight } from 'react-icons/hi';
 import { CiEdit } from 'react-icons/ci';
-import Loading from '../../common/Loading';
+import Loading from '../../../common/Loading';
 function CheckOTPForm({
   otpResponse,
   onSubmit,
