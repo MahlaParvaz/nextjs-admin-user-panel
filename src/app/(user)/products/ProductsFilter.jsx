@@ -1,16 +1,16 @@
-'use client';
+"use client";
+import CheckBox from "@/common/CheckBox";
+import { usePathname, useSearchParams, useRouter } from "next/navigation";
+import { useCallback, useState } from "react";
 
-import CheckBox from '@/common/CheckBox';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { useCallback, useState } from 'react';
-
-function CategoriesSidebar({ categories }) {
+function ProductsFilter({ categories }) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [selectedCategories, setSelectedCategories] = useState(
-    searchParams.get('category')?.split(',') || []
+    searchParams.get("category")?.split(",") || []
   );
+  // console.log(searchParams.getAll("category")[0].split(","));
 
   const createQueryString = useCallback(
     (name, value) => {
@@ -26,21 +26,20 @@ function CategoriesSidebar({ categories }) {
     if (selectedCategories.includes(value)) {
       const categories = selectedCategories.filter((c) => c !== value);
       setSelectedCategories(categories);
-      router.push(pathname + '?' + createQueryString('category', categories));
+      router.push(pathname + "?" + createQueryString("category", categories));
     } else {
       setSelectedCategories([...selectedCategories, value]);
       router.push(
         pathname +
-          '?' +
-          createQueryString('category', [...selectedCategories, value])
+          "?" +
+          createQueryString("category", [...selectedCategories, value])
       );
     }
   };
-
   return (
-    <div className="col-span-1">
+    <div className="mb-8">
       <p className="font-bold mb-4">دسته بندی ها</p>
-      <ul className="space-y-4">
+      <ul className=" space-y-4">
         {categories.map((category) => {
           return (
             <CheckBox
@@ -58,5 +57,4 @@ function CategoriesSidebar({ categories }) {
     </div>
   );
 }
-
-export default CategoriesSidebar;
+export default ProductsFilter;
