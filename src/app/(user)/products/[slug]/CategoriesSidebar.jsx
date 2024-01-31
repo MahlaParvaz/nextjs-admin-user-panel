@@ -1,7 +1,8 @@
+'use client';
+
 import CheckBox from '@/common/CheckBox';
-import { URLSearchParams } from 'next/dist/compiled/@edge-runtime/primitives/url';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 function CategoriesSidebar({ categories }) {
   const router = useRouter();
