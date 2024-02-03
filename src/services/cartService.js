@@ -7,3 +7,4 @@ export function addToCart(productId) {
 export function decrementFromCart(productId) {
   return http.post('/cart/remove', { productId }).then(({ data }) => data.data);
 }
+
