@@ -1,5 +1,7 @@
 // import { toStringCookies } from './toStringCookies';
 
+import { toStringCookies } from './toStringCookies';
+
 export default async function middlewareAuth(req) {
   let strCookie = '';
   req.cookies.getAll().forEach((item) => {
@@ -12,7 +14,7 @@ export default async function middlewareAuth(req) {
       method: 'GET',
       credentials: 'include',
       headers: {
-        Cookie: strCookie,
+        Cookie: toStringCookies(req.cookies),
       },
     }
   ).then((res) => res.json());

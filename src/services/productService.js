@@ -6,3 +6,12 @@ export function getProducts(qs) {
 export function getOneProdcutBySlug(slug) {
   return http.get(`/product/slug/${slug}`).then(({ data }) => data.data);
 }
+export function getOneProdcutById(id) {
+  return http.get(`/product/id/${slug}`).then(({ data }) => data.data);
+}
+export function likeProduct(id) {
+  return http.post(`/product/like/${id}`).then(({ data }) => data.data);
+}
+export function addProduct(data) {
+  return http.post(`/admin/product/add`, data).then(({ data }) => data.data);
+}
